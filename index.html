@@ -162,6 +162,28 @@ body.lift #pad .pbase#stickBase,body.lift #runBtn,body.lift #poi{display:none!im
 #err{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center;line-height:1.8;z-index:40;background:var(--sumi)}
 #load{position:fixed;left:0;right:0;top:calc(env(safe-area-inset-top,0px) + 18px);text-align:center;font-size:12px;color:var(--mute);z-index:31;letter-spacing:.14em}
 @media (min-width:760px){ .place .area{font-size:26px} #mini{width:132px;height:132px} .topbtns{top:calc(env(safe-area-inset-top,0px) + 152px)} #menu{top:calc(env(safe-area-inset-top,0px) + 194px)} }
+
+/* スマホ横向き（高さが低い画面）：ボタンが重ならない配置 */
+@media (orientation:landscape) and (max-height:520px){
+  .place{max-width:calc(50% - 60px)} .eyebrow{font-size:10px;letter-spacing:.12em} .place .area{font-size:18px!important;margin-top:1px} #fudaN{font-size:11px}
+  #mini{width:92px!important;height:92px!important;top:calc(env(safe-area-inset-top,0px) + 8px)}
+  .topbtns{top:calc(env(safe-area-inset-top,0px) + 8px)!important;right:calc(env(safe-area-inset-right,0px) + 112px)}
+  .topbtns button{height:32px;padding:0 11px}
+  #menu{top:calc(env(safe-area-inset-top,0px) + 46px)!important;right:calc(env(safe-area-inset-right,0px) + 112px);max-height:calc(100vh - 56px)}
+  .pbase{width:112px;height:112px;bottom:calc(env(safe-area-inset-bottom,0px) + 16px)}
+  #stickBase{left:calc(env(safe-area-inset-left,0px) + 18px)} #lookBase{right:calc(env(safe-area-inset-right,0px) + 18px)}
+  .pbtn{width:56px;height:38px}
+  #runBtn{left:calc(env(safe-area-inset-left,0px) + 140px);bottom:calc(env(safe-area-inset-bottom,0px) + 52px)}
+  #levelBtn{right:calc(env(safe-area-inset-right,0px) + 140px);bottom:calc(env(safe-area-inset-bottom,0px) + 80px)}
+  #upBtn{right:calc(env(safe-area-inset-right,0px) + 140px);bottom:calc(env(safe-area-inset-bottom,0px) + 30px)}
+  #poi,body.touchui #poi{bottom:calc(env(safe-area-inset-bottom,0px) + 12px);max-width:calc(100% - 440px);padding:8px 12px 8px 10px} #poi .nm{font-size:14px}
+  #acts,body.touchui #acts{bottom:calc(env(safe-area-inset-bottom,0px) + 62px);max-width:calc(100% - 440px)} #acts button{height:40px;padding:0 14px;font-size:13px}
+  #hint{top:calc(env(safe-area-inset-top,0px) + 50px);max-width:calc(100% - 460px);font-size:12px;padding:8px 12px}
+  #navBar{top:calc(env(safe-area-inset-top,0px) + 74px);max-width:calc(50% - 40px)}
+  #card{max-height:calc(100vh - 24px);width:min(460px,calc(100% - 140px))}
+  #toast .f{font-size:17px;padding:12px 9px}
+  #start{align-items:center;overflow:auto} .start-in{gap:8px;max-width:600px;padding:10px 0} .start-in p{font-size:12.5px;line-height:1.6} .ttl .m{font-size:clamp(22px,5vw,40px)} .ttl .s{margin-bottom:4px} .start-in .note{display:none}
+}
 </style>
 </head>
 <body>
@@ -1104,7 +1126,7 @@ inEra('c',()=>{ wing('x',112,170,12,44,-24,12,['N','E','W'],[],{}); pave('earth'
 /* ============================================================
    南庭園（城壁の上の庭・天国の庭）と雄牛の階段の下
    ============================================================ */
-inEra('crn',()=>{ const g=SG; slab(g.x0,g.x1,g.z0,g.z1,g.y); parapet('lime','x',g.z1-.25,g.x0,g.x1,g.y,1.1,.5); parapet('lime','z',g.x1-.25,g.z0,g.z1,g.y,1.1,.5); parapet('lime','z',g.x0+.25,g.z0,g.z1,g.y,1.1,.5);
+inEra('crn',()=>{ const g=SG; slab(g.x0,g.x1,g.z0,g.z1,g.y); parapet('lime','x',g.z1-.25,g.x0,g.x1,g.y,1.1,.5); solidBox('limeD',g.x1-.5,g.x1+2.4,g.y,1.6,g.z0,g.z1+.5); boxAt('lime',g.x1-.6,g.x1+2.5,1.6,1.9,g.z0,g.z1+.6); parapet('lime','z',g.x0+.25,g.z0,g.z1,g.y,1.1,.5);
   ribbon([[-206,57,-8],[-206,72,-8],[54,72,-8]],3.4,'gravel','crn',.06); for(const x of [-150,-90,-40,10]) ribbon([[x,52,-8],[x,93,-8]],2.6,'gravel','crn',.06); });
 inEra('rn',()=>{ for(const [x0,x1] of [[-204,-152],[-148,-92],[-88,-42],[-38,8],[12,54]]) for(const [z0,z1] of [[54,70],[74,93]]){ pave('lawn',x0+1,x1-1,z0+.5,z1-.5,-7.95); boxAt('hedge',x0+1,x1-1,-8,-7.4,z0+.3,z0+.9); boxAt('hedge',x0+1,x1-1,-8,-7.4,z1-.9,z1-.3); } });
 inEra('n',()=>{ // プレチニクの花崗岩の鉢・ベルヴュー東屋・窓外投擲事件のオベリスク・マティアスの東屋
@@ -1117,7 +1139,7 @@ inEra('c',()=>{ for(let i=0;i<30;i++){ const x=R(-200,50), z=R(56,92); solidBox(
 /* ============================================================
    火薬橋（鹿の堀を渡る土手の橋）と王宮庭園
    ============================================================ */
-inEra('crn',()=>{ slab(-116,-108,-98,-50,0); boxAt('cob',-116,-108,-.15,.04,-98,-50); solidBox('limeD',-116.5,-107.5,-32,-.16,-97,-51);
+inEra('crn',()=>{ slab(-116,-108,-98,-31,0); boxAt('cob',-116,-108,-.15,.04,-98,-50); pave('cob',-116,-108,-50,-32,.045); solidBox('limeD',-116.5,-107.5,-32,-.8,-97,-51); boxAt('limeD',-116.5,-107.5,-.8,-.15,-97,-51);
   for(const x of [-116.3,-107.7]){ solidBox('limeD',x-.3,x+.3,0,1,-98,-50); boxAt('lime',x-.36,x+.36,1,1.12,-98,-50); }
   bk('black').add(new THREE.CircleGeometry(2.2,16,0,PI),TM(-116.52,-27,-72,-PI/2)); bk('black').add(new THREE.CircleGeometry(2.2,16,0,PI),TM(-107.48,-27,-72,PI/2));
   // 堀の北の縁の柵
