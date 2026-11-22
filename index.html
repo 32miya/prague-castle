@@ -1574,7 +1574,7 @@ function drawMini(){ const lv=mapLvOf(); const key=lv+ERA; const L=LVCAN[key]||(
   use('golden_gate_mosaic.webp',t=>setMap(M.mosaicG,t,true)); use('wenceslas_gems.webp',t=>setMap(M.gem,t,true)); use('wenceslas_mural.webp',t=>{ setMap(M.passion,t); setMap(M.passionIn,t); });
   use('mucha_window.webp',t=>setMap(M.mucha,t)); use('rose_window.webp',t=>{ setMap(M.rose,t); setMap(M.roseOut,t,true); });
   use('stained_glass_1.webp',t=>setMap(M.sg0,t)); use('stained_glass_2.webp',t=>setMap(M.sg1,t)); use('stained_glass_3.webp',t=>setMap(M.sg2,t));
-  use('cathedral_vault.webp',t=>setMap(M.vaultN,t)); use('vladislav_vault.webp',t=>setMap(M.vaultV,t)); use('sgraffito.webp',t=>setMap(M.sgraf,t)); use('st_george_facade.webp',t=>setMap(M.redFac,t));
+  use('cathedral_vault.webp',t=>setMap(M.vaultN,t)); use('vladislav_vault.webp',t=>setMap(M.vaultV,t)); use('sgraffito.webp',t=>{ t.repeat.set(.3,.3); setMap(M.sgraf,t); }); use('st_george_facade.webp',t=>setMap(M.redFac,t));
   use('sandstone.webp',t=>{ t.repeat.set(.8,.8); setMap(M.sand,t,true); });
   for(let i=0;i<7;i++) use('lane_house_'+(i+1)+'.webp',t=>setMap(M['lane'+i],t));
 }
