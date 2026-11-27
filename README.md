@@ -36,3 +36,6 @@
 
 ## 公開URL
 https://32miya.github.io/prague-castle/
+
+## 世界さんぽディフェンス（`?td`）
+`?td` を付けて開くと、このマップが「世界さんぽディフェンス」（タワー配置型の防衛ゲーム、https://32miya.github.io/defence-castle/world/ ）のステージになります。ゲーム本体は defence-castle リポジトリの `world/` にあり、このページは入口の数行（`TD`）だけを持ちます。
